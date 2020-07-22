@@ -6,36 +6,21 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class BillingAccounts
+    class BillingAccounts:Account
     {
-        public string AccountNumber;
-        public decimal Balance;
-        public string FirstName;
-        public string LastName;
-        public long Pesel;
+        
 
-        public BillingAccounts(string accountNumber, decimal balance, string firstName, string lastName, long pesel)
+        public BillingAccounts(int id, string firstName, string lastName, long pesel)
+            : base(id,firstName, lastName,pesel)
         {
-            AccountNumber = accountNumber;
-            Balance = balance;
-            FirstName = firstName;
-            LastName = lastName;
-            Pesel = pesel;
+           
 
         }
 
-        public string GetFullName()
+        public override string TypeName()
         {
-            string FullName = string.Format("{0} {1}", FirstName, LastName);
-
-            return FullName;
+            return "ROZLICZENIOWE";
         }
 
-        public string GetBalance()
-        {
-            string balance = string.Format("Na koncie masz {0}zł", Balance);
-
-            return balance;
-        }
     }
 }
